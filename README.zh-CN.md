@@ -30,7 +30,9 @@ xhook 一直在稳定性和兼容性方面做着持续的优化。
 你需要 google NDK 来编译 xhook。  
 https://developer.android.com/ndk/downloads/index.html
 
-最新版本的 xhook 在开发和调试中使用的 NDK 版本是 **r16b**。
+~最新版本的 xhook 在开发和调试中使用的 NDK 版本是 **r16b**。~
+
+通过修改代码目前最新版本的 xhook 在开发和调试中使用的 NDK 版本是 **r14b** 和 **r16b**。
 
 * 编译动态库 (libxhook.so 和其他的用于测试的动态库)
 
