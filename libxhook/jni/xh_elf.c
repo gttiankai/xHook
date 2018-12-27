@@ -69,6 +69,12 @@
 #define XH_ELF_R_TYPE(info) ELF32_R_TYPE(info)
 #endif
 
+#define DT_LOOS 0x6000000d
+#define DT_ANDROID_REL (DT_LOOS + 2)
+#define DT_ANDROID_RELSZ (DT_LOOS + 3)
+#define DT_ANDROID_RELA (DT_LOOS + 4)
+#define DT_ANDROID_RELASZ (DT_LOOS + 5)
+
 //iterator for plain PLT
 typedef struct
 {
@@ -847,6 +853,7 @@ int xh_elf_init(xh_elf_t *self, uintptr_t base_addr, const char *pathname)
         case DT_ANDROID_REL:
         case DT_ANDROID_RELA:
             {
+                XH_LOG_ERROR("DT_ANDROID_RELA: %x",DT_ANDROID_RELA);
                 self->relandroid = (ElfW(Addr))(self->bias_addr + dyn->d_un.d_ptr);
                 if((ElfW(Addr))(self->relandroid) < self->base_addr) return XH_ERRNO_FORMAT;
                 break;
