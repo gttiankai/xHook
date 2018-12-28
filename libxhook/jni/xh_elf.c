@@ -75,6 +75,7 @@
 #define DT_ANDROID_RELA (DT_LOOS + 4)
 #define DT_ANDROID_RELASZ (DT_LOOS + 5)
 
+#define DT_GNU_HASH 0x6ffffef5
 //iterator for plain PLT
 typedef struct
 {
@@ -853,7 +854,6 @@ int xh_elf_init(xh_elf_t *self, uintptr_t base_addr, const char *pathname)
         case DT_ANDROID_REL:
         case DT_ANDROID_RELA:
             {
-                XH_LOG_ERROR("DT_ANDROID_RELA: %x",DT_ANDROID_RELA);
                 self->relandroid = (ElfW(Addr))(self->bias_addr + dyn->d_un.d_ptr);
                 if((ElfW(Addr))(self->relandroid) < self->base_addr) return XH_ERRNO_FORMAT;
                 break;
